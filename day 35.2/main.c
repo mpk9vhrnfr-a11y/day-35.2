@@ -1,15 +1,33 @@
-//
-//  main.c
-//  day 35.2
-//
-//  Created by Sanaa Kumar on 26/11/25.
-//
-
-#include <stdlib.h>
 #include <stdio.h>
+int main(void) {
+    int arr[100], n, k, i;
+    int temp[100];
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    printf("Hello, World!\n");
-    return EXIT_SUCCESS;
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter %d elements:\n", n);
+    for(i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    printf("Enter k: ");
+    scanf("%d", &k);
+
+    k = k % n;
+
+    for(i = 0; i < n; i++) {
+        temp[(i + k) % n] = arr[i];
+    }
+
+    for(i = 0; i < n; i++) {
+        arr[i] = temp[i];
+    }
+
+    printf("Array after rotation:\n");
+    for(i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+
+    return 0;
 }
